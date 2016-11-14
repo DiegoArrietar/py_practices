@@ -9,6 +9,13 @@
     {% endif %}
 </head>
 <body>
+    <ul>
+        {% if current_user.is_authenticated %}
+        <li><a href="{{url_for('#')}}">Sign Out</a></li>
+        {% else %}
+        <li><a href="{{url_for('login')}}">Sign In</a></li>
+        {% endif %}
+    </ul>
     <div>Microblog: <a href="/index">Home</a></div>
     <hr>
     {% with messages = get_flashed_messages() %}
